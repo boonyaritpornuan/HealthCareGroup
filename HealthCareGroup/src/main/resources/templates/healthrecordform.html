@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Health Record</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+        h1 {
+            background-color: #00877d;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+        form {
+            background-color: #00d8ce;
+            padding: 50px;
+            border-radius: 10px;
+            width: 35%;
+            margin: 30px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            background-color: #0065ad;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100% ;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0cada1;
+        }
+        button:active {
+            background-color: #0065ad;
+        }
+    </style>
+</head>
+<body>
+<h1>เพิ่ม ข้อมูลสุขภาพ</h1>
+<form th:action="@{/addhealthrecord}" th:object="${healthRecordForm}" method="post">
+    รหัส: <input type="text" th:field="*{id}" /><br/>
+    เวลา: <input type="text" th:field="*{time}" /><br/>
+    วัน/เดือน/ปี: <input type="text" th:field="*{date}" /><br/>
+    ชื่อ-นามสกุล: <input type="text" th:field="*{name}" /><br/>
+    ความดันโลหิต: <input type="text" th:field="*{pressure}" /><br/>
+    อัตราการเต้นหัวใจ: <input type="text" th:field="*{heartRate}" /><br/>
+    อายุ: <input type="text" th:field="*{age}" /><br/>
+    น้ำหนัก: <input type="text" th:field="*{weight}" /><br/>
+    ส่วนสูง: <input type="text" th:field="*{height}" /><br/>
+    ผู้บันทึก: <input type="text" th:field="*{collector}" /><br/>
+    <button type="submit">เพิ่ม</button>
+</form>
+</body>
+</html>
